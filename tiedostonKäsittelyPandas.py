@@ -1,6 +1,6 @@
 import pandas
 kasittelymode='k'
-print("Welcome to the data editing software")
+print("Welcome to the data editing and reading software")
 print("Which of the following you would like to do?")
 while(kasittelymode!='1' and kasittelymode!='2'):
     print("1: Make a new dataset")
@@ -27,16 +27,41 @@ if(kasittelymode=='1'):
     a3=[]
     a4=[]
     while(md!='n'):
+        columnNumb=1
         print("give data to your dataset")
-        a1a=input(avaimet[0]+"= ")
-        a1.append(a1a)
-        a2a=input(avaimet[1]+"= ")
-        a2.append(a2a)
-        a3a=input(avaimet[2]+"= ")
-        a3.append(a3a)
-        a4a=input(avaimet[3]+"= ")
-        a4.append(a4a)
-        md=input("Do you want to give more data(y/n) ?")
+        while(columnNumb==1):
+            a1a=input(avaimet[0]+"= ")
+            a1.append(a1a)
+            nextCol=input("Do you want to give more data to this column(y/n) ?")
+            if(nextCol=='y'):
+                columnNumb=columnNumb+0
+            if(nextCol=='n'):
+                columnNumb=columnNumb+1    
+        while(columnNumb==2):
+            a2a=input(avaimet[1]+"= ")
+            a2.append(a2a)
+            nextCol=input("Do you want to give more data to this column(y/n) ?")
+            if(nextCol=='y'):
+                columnNumb=columnNumb+0
+            if(nextCol=='n'):
+                columnNumb=columnNumb+1
+        while(columnNumb==3):
+            a3a=input(avaimet[2]+"= ")
+            a3.append(a3a)
+            nextCol=input("Do you want to give more data to this column(y/n) ?")
+            if(nextCol=='y'):
+                columnNumb=columnNumb+0
+            if(nextCol=='n'):
+                columnNumb=columnNumb+1
+        while(columnNumb==4):
+            a4a=input(avaimet[3]+"= ")
+            a4.append(a4a)
+            nextCol=input("Do you want to give more data to this column(y/n) ?")
+            if(nextCol=='y'):
+                columnNumb=columnNumb+0
+            if(nextCol=='n'):
+                columnNumb=columnNumb+1
+                md='n'
     dtset[avaimet[0]]=a1
     dtset[avaimet[1]]=a2
     dtset[avaimet[2]]=a3
@@ -64,9 +89,8 @@ if(kasittelymode=='2'):
     AlReadName=''
     dtype=''
     dtype=input("Is your file json(1), csv(2) or excel(3)?: ")
-    print("Give the path to datafile or if the datafile is on the same folder as the program just give the name of the file")
+    print("Give the path to datafile or if the datafile is on the same folder as the program just give the name of the file, also give the filetype with the name(example test.csv)")
     AlReadName=input("Give the name of the datafile: ")
-    
     if(dtype=='1'):
         df=pandas.read_json(AlReadName)
         print(df.to_string())
@@ -107,3 +131,4 @@ if(kasittelymode=='2'):
                 updatedf.to_excel(AlReadName)        
     if(jatko=='n'):
         print("")        
+        
