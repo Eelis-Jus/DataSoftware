@@ -73,13 +73,13 @@ if(kasittelymode=='1'):
     if(save=='y'):
         tyyppi=input("do you want to save file ar json(1), csv(2) or excel(3) ?: ")
         if(tyyppi=='2'):
-            Filename=input("Given either name of the file or path where you'll save the file+name of the file. Use .csv as type of the file.")
+            Filename=input("Give the name you want to save the file as. Use .csv as type of the file.")
             df.to_csv(Filename)
         if(tyyppi=='1'):
-            Filename=input("Given either name of the file or path where you'll save the file+name of the file. Use .json as type of the file.")
+            Filename=input("Give the name you want to save the file as. Use .json as type of the file.")
             df.to_json(Filename)
         if(tyyppi=='3'):
-            Filename=input("Given either name of the file or path where you'll save the file+name of the file. Use .json as type of the file.")
+            Filename=input("Give the name you want to save the file as. Use .json as type of the file.")
             df.to_excel(Filename)    
         print("file saved")
     else:    
@@ -89,7 +89,7 @@ if(kasittelymode=='2'):
     AlReadName=''
     dtype=''
     dtype=input("Is your file json(1), csv(2) or excel(3)?: ")
-    print("Give the path to datafile or if the datafile is on the same folder as the program just give the name of the file, also give the filetype with the name(example test.csv)")
+    print("Give the name of the file, also give the filetype with the name(example test.csv)")
     AlReadName=input("Give the name of the datafile: ")
     if(dtype=='1'):
         df=pandas.read_json(AlReadName)
