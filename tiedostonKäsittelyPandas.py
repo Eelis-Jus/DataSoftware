@@ -1,4 +1,5 @@
 import pandas
+import openpyxl
 kasittelymode='k'
 print("Welcome to the data editing and reading software")
 print("Which of the following you would like to do?")
@@ -18,7 +19,7 @@ if(kasittelymode=='1'):
     a=int(a)
     print("Give names for 4 columns to dataset")
     while(a<4):
-        b=input("Give columns names")
+        b=input("Give columns names: ")
         avaimet.append(b)
         a=a+1
     md='y'
